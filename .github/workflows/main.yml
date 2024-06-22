@@ -22,9 +22,9 @@ jobs:
       run: dotnet publish -c Release './Chapter12/Chapter_12_GitHubActions_Examples/Chapter12.csproj'
     - name: Save artifacts
       uses: actions/upload-artifacts@v2
-      with: 
-            name: myWASM
-            path: './Chapter12/Chapter_12_GitHubActions_Examples/bin/Release/net5.0/publish/wwwroot/'
+      with:
+        name: myWASM
+        path: './Chapter12/Chapter_12_GitHubActions_Examples/bin/Release/net5.0/publish/wwwroot/'
 
 # DEPLOY
   deploy:
@@ -49,7 +49,7 @@ jobs:
       with:
           name: myWASM
     - name: Commit changes
-        run |
+      run: |
             git add .
             git commit -m "publishing WASM"
             git push --set-upstream origin pages
